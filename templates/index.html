@@ -1,0 +1,21 @@
+{% extends "./base.html" %}
+
+{% block title %}
+Inicio
+{% endblock  %}
+
+{% block content %}
+<div class="container">
+    <h2>Lista de Recetas</h2>
+    {% for platillo in plantillos %}
+    <div class="recipe-card">
+        {% if platillo.image %}
+        <img src="{{url_for('static', filename='images/' + platillo.image)}}" alt="{{ platillo.titulo }}">
+        {% endif %}
+        <h3>{{ platillo.titulo }}</h3>
+        <p><strong>Ingredientes:</strong> {{ platillo.ingrediente }}</p>
+        <p><strong>Instrucciones:</strong> {{ platillo.instruccion }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock  %}
